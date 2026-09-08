@@ -3,205 +3,229 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thirukural Stories — Admin</title>
+<title>Thirukural Stories — Wisdom Across Time</title>
 <style>
-:root{--ink:#2c1b12;--gold:#c9983e;--cream:#fff8e9;--deep:#160e0a;--brown:#4a2d1d}
-*{box-sizing:border-box}body{margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);
-background:linear-gradient(180deg,#1b100b,#4a2918 45%,#120b08);min-height:100vh}
-header{padding:18px 6%;display:flex;justify-content:space-between;align-items:center;background:#160c08;color:#f1d28a;border-bottom:1px solid #6f5128}
-header h1{margin:0;font-size:23px}header p{margin:4px 0 0;color:#cdbb9d;font-size:13px}
-main{width:min(1050px,92%);margin:35px auto 60px}.panel{background:#fff8e9;border:1px solid #c9983e;border-radius:24px;padding:30px;box-shadow:0 20px 60px #0006}
-h2{margin-top:0;color:#57351e}.notice{background:#f7e8c5;border-left:4px solid #c9983e;padding:12px 15px;margin-bottom:25px;line-height:1.5}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:7px}.full{grid-column:1/-1}
-label{font-weight:bold;font-size:13px;color:#68431f}
-input,textarea{padding:12px;border:1px solid #c9ab76;border-radius:10px;background:white;color:#2c1b12;font:inherit}
-textarea{min-height:120px;resize:vertical}.actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
-button{border:0;border-radius:22px;padding:11px 18px;background:#6b3f21;color:#fff3d0;cursor:pointer;font:inherit}
-button.secondary{background:#e9d6ac;color:#432716}button:hover{opacity:.9}
-.status{margin-top:15px;padding:10px;border-radius:10px;display:none;background:#e4f0dc;color:#345322}
-a{color:#f1d28a;text-decoration:none}
-@media(max-width:750px){.grid{grid-template-columns:1fr}.full{grid-column:auto}}
-
-/* Bulk import workflow */
-.workflow{margin:28px 6%;background:rgba(255,248,233,.97);border-radius:18px;padding:24px;box-shadow:0 15px 45px rgba(0,0,0,.28)}
-.workflow h2{margin-top:0;color:var(--brown)}
-.steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.step{padding:9px 14px;border:1px solid #d9c49a;border-radius:999px;background:#fff}.step.active{background:var(--gold);color:#fff;border-color:var(--gold);font-weight:bold}
-.drop{border:2px dashed #c9983e;border-radius:14px;padding:24px;text-align:center;background:#fffaf0}.drop input{margin-top:12px}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}.actions button{border:0;border-radius:10px;padding:11px 16px;cursor:pointer;font-weight:bold}.primary{background:var(--gold);color:#fff}.secondary{background:#ead9b7;color:var(--brown)}.danger{background:#8d3025;color:#fff}
-.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:16px 0}.stat{padding:14px;border-radius:12px;background:#f5ead3;text-align:center}.stat b{display:block;font-size:22px;color:var(--brown)}
-.tableWrap{overflow:auto;max-height:420px;border:1px solid #decba6;border-radius:12px}table{width:100%;border-collapse:collapse;background:#fff}th,td{padding:10px;border-bottom:1px solid #eadfc9;text-align:left;vertical-align:top;font-size:14px}th{position:sticky;top:0;background:#f2e3c5;color:var(--brown)}.ok{color:#176b35;font-weight:bold}.bad{color:#9a251d;font-weight:bold}.warn{color:#8a5b00;font-weight:bold}
-.hidden{display:none}.hint{font-size:13px;color:#6b5848}.filePath{font-family:monospace;font-size:12px}
+:root{
+  --ink:#2c1b12; --gold:#c9983e; --gold2:#f1d28a; --cream:#fff8e9;
+  --deep:#160e0a; --brown:#4a2d1d; --muted:#ead9b8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Georgia,"Times New Roman",serif;color:var(--ink);
+  background:
+    radial-gradient(circle at 50% 18%,rgba(255,215,120,.16),transparent 30%),
+    linear-gradient(180deg,#1b100b 0%,#3b2114 42%,#120b08 100%);
+  min-height:100vh;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;
+  background-image:
+    radial-gradient(circle at 20% 30%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 80% 65%,#fff 0 1px,transparent 2px);
+  background-size:180px 180px,240px 240px;
+}
+header{
+  min-height:82px;padding:18px 6%;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;border-bottom:1px solid rgba(241,210,138,.3);
+  background:rgba(15,8,5,.72);backdrop-filter:blur(10px);position:sticky;top:0;z-index:5;
+}
+.brand{display:flex;align-items:center;gap:13px;color:var(--gold2)}
+.lamp{font-size:30px}.brand h1{font-size:22px;margin:0;letter-spacing:.8px}.brand small{color:#c9b99e}
+nav{display:flex;gap:9px;flex-wrap:wrap}
+button,select,input,textarea{font:inherit}
+button{
+  border:1px solid rgba(241,210,138,.45);background:rgba(255,248,233,.07);
+  color:var(--gold2);padding:9px 14px;border-radius:20px;cursor:pointer;
+}
+button:hover{background:rgba(201,152,62,.18)}
+main{width:min(1180px,92%);margin:0 auto;padding:42px 0 70px}
+.hero{text-align:center;color:#fff4dc;padding:22px 0 34px}
+.hero .eyebrow{color:var(--gold2);letter-spacing:4px;text-transform:uppercase;font-size:12px}
+.hero h2{font-size:clamp(34px,5vw,58px);margin:10px 0 6px;font-weight:500}
+.hero p{margin:0;color:#d7c6aa;font-size:17px}
+.ornament{color:var(--gold);font-size:25px;margin:16px 0}
+.card{
+  background:linear-gradient(145deg,rgba(255,248,233,.98),rgba(248,232,197,.96));
+  border:1px solid rgba(201,152,62,.65);border-radius:28px;
+  box-shadow:0 25px 80px rgba(0,0,0,.35);overflow:hidden;
+}
+.kural-top{display:grid;grid-template-columns:1.15fr .85fr}
+.kural{padding:44px 44px 38px}
+.kural-tag{color:#8d6422;font-size:12px;font-weight:bold;letter-spacing:2px;text-transform:uppercase}
+.kural h3{font-size:18px;margin:9px 0 22px;color:#6b4820}
+.tamil-kural{font-family:"Noto Serif Tamil","Latha",serif;font-size:clamp(25px,3vw,36px);
+line-height:1.8;text-align:center;margin:20px 0;color:#24140c}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:25px 0}
+.trans{font-size:18px;line-height:1.65;text-align:center;color:#543a27}
+.meaning{padding:38px;background:linear-gradient(160deg,#3b2114,#24130d);color:#fff1d3;
+display:flex;flex-direction:column;justify-content:center}
+.meaning h3{margin:0 0 14px;color:var(--gold2);font-size:24px}
+.meaning p{font-size:18px;line-height:1.75;margin:0 0 22px}
+.pill{display:inline-block;border:1px solid rgba(241,210,138,.35);border-radius:18px;
+padding:7px 12px;color:#e8d3a8;font-size:13px;margin:4px}
+.story{margin-top:24px}
+.story-head{padding:30px 38px 18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.story-head h2{margin:0;font-size:29px}
+.story-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.story-visual{
+  min-height:390px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 24%,rgba(255,190,74,.42),transparent 10%),
+    linear-gradient(180deg,#21120c 0%,#6d3b1d 55%,#1c110b 100%);
+}
+.story-visual:before{
+  content:"";position:absolute;left:10%;right:10%;bottom:0;height:48%;
+  background:repeating-linear-gradient(90deg,rgba(0,0,0,.0) 0 35px,rgba(0,0,0,.18) 36px 40px);
+  border-radius:50% 50% 0 0;
+}
+.temple{position:absolute;left:50%;bottom:19%;transform:translateX(-50%);
+width:65%;height:55%;background:#7c4c28;clip-path:polygon(50% 0,100% 24%,88% 24%,88% 100%,12% 100%,12% 24%,0 24%)}
+.temple:after{content:"";position:absolute;left:42%;bottom:0;width:16%;height:50%;background:#28150d}
+.moon{position:absolute;right:13%;top:12%;width:52px;height:52px;border-radius:50%;
+background:#f7d991;box-shadow:0 0 35px #e4a94f}
+.story-copy{padding:38px}
+.story-copy h3{font-size:27px;margin:0 0 12px;color:#57351e}
+.story-copy p{font-size:17px;line-height:1.75;margin:0 0 16px}
+.moral{border-left:4px solid var(--gold);padding:12px 16px;background:#fff3d4}
+.moral strong{display:block;color:#754c1f;margin-bottom:5px}
+.langbar{display:flex;justify-content:center;gap:8px;margin:0 0 25px;flex-wrap:wrap}
+.admin h2{margin-top:0}
+footer{text-align:center;color:#bda98a;padding:28px;font-size:13px}
+[dir="rtl"]{font-family:Georgia,"Times New Roman",serif}
+@media(max-width:800px){
+  .kural-top,.story-body{grid-template-columns:1fr}
+  .kural{padding:30px 22px}.meaning{padding:30px 22px}.story-copy{padding:28px 22px}
+  .grid{grid-template-columns:1fr}.field.full{grid-column:auto}
+  header{align-items:flex-start;flex-direction:column}
+}
 </style>
 </head>
 <body>
+
 <header>
-  <div><h1>🪔 Thirukural Stories — Admin</h1><p>Content management for Kural, explanation and moral stories</p></div>
-  <a href="thirukural_stories.html">View Public Page →</a>
+  <div class="brand">
+    <div class="lamp">🪔</div>
+    <div><h1>Thirukural Stories</h1><small>Ancient wisdom • Living morals</small></div>
+  </div>
+  <nav>
+    <button onclick="setLanguage('ta')">தமிழ்</button>
+    <button onclick="setLanguage('en')">English</button>
+  </nav>
 </header>
 
-<section class="workflow">
-  <h2>📁 JSON Folder Import</h2>
-  <div class="steps"><span id="step1" class="step active">1. Select Folder</span><span id="step2" class="step">2. Validate</span><span id="step3" class="step">3. Preview</span><span id="step4" class="step">4. Import</span></div>
-  <div class="drop">
-    <strong>Select your Thirukural JSON folder</strong><br>
-    <span class="hint">Example: Thirukural/001.json … Thirukural/1330.json</span><br>
-    <input id="jsonFolder" type="file" webkitdirectory directory multiple accept=".json,application/json">
-  </div>
-  <div class="summary">
-    <div class="stat"><b id="fileCount">0</b>Files</div>
-    <div class="stat"><b id="validCount">0</b>Valid</div>
-    <div class="stat"><b id="invalidCount">0</b>Invalid</div>
-    <div class="stat"><b id="duplicateCount">0</b>Duplicates</div>
-  </div>
-  <div class="actions">
-    <button id="validateBtn" class="primary" disabled>✓ Validate Files</button>
-    <button id="previewBtn" class="secondary" disabled>👁 Preview Valid Kurals</button>
-    <button id="importBtn" class="primary" disabled>⬇ Import as Draft</button>
-    <button id="clearBtn" class="danger">Clear</button>
-  </div>
-  <div id="importStatus" class="hint"></div>
-  <div id="preview" class="hidden"></div>
-</section>
-
-
 <main>
-<section class="panel">
-<h2>Add / Edit Thirukkural Story</h2>
-<div class="notice">
-This prototype stores the content in the browser's localStorage. The public page reads the same content.
-For production, this admin page can be connected to your AztutMind backend, PostgreSQL, authentication and multilingual content tables.
-</div>
+  <section class="hero">
+    <div class="eyebrow">திருக்குறள் • THIRUKKURAL</div>
+    <h2 id="pageTitle">Wisdom Told Through Stories</h2>
+    <div class="ornament">❈</div>
+    <p id="pageSubtitle">One Kural · One Meaning · One timeless story</p>
+  </section>
 
-<div class="grid">
-<div class="field"><label>Kural Number</label><input id="aNo" value="131"></div>
-<div class="field"><label>Chapter</label><input id="aChapter" value="அதிகாரம் 14 · ஒழுக்கமுடைமை"></div>
-<div class="field full"><label>Kural — Tamil</label><textarea id="aTa">ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம்
-உயிரினும் ஓம்பப் படும்</textarea></div>
-<div class="field full"><label>Kural — English</label><textarea id="aEn">Conduct gives greatness; therefore conduct must be guarded more carefully than life itself.</textarea></div>
-<div class="field full"><label>Explanation — Tamil</label><textarea id="aMeaningTa">நல்லொழுக்கம் மனிதனுக்கு உயர்வையும் மதிப்பையும் தருகிறது. அதனால், உயிரைவிட மேலாக ஒழுக்கத்தைப் பாதுகாக்க வேண்டும்.</textarea></div>
-<div class="field full"><label>Explanation — English</label><textarea id="aMeaningEn">Good conduct gives a person dignity and greatness. Therefore, one should protect one's conduct even more carefully than life.</textarea></div>
-<div class="field"><label>Story Title</label><input id="aStoryTitle" value="Harishchandra — The King Who Guarded Truth"></div>
-<div class="field"><label>Story Heading</label><input id="aStoryHeading" value="The Promise That Was Not Broken"></div>
-<div class="field full"><label>Story — Tamil</label><textarea id="aStoryTa">பாரம்பரியக் கதைகளில் அரசர் அரிச்சந்திரன் தனது வாக்கைக் காப்பதற்காக கடுமையான சோதனைகளை எதிர்கொள்கிறார். அரச பதவி, செல்வம், வசதி அனைத்தையும் இழந்தபோதும், அவர் தான் நம்பிய நேர்மையான நடத்தையை கைவிடவில்லை.</textarea></div>
-<div class="field full"><label>Story — English</label><textarea id="aStoryEn">In traditional stories, King Harishchandra faces severe hardship after giving his word. Though he loses royal position, wealth and comfort, he continues to uphold what he believes is right.</textarea></div>
-<div class="field full"><label>Moral — Tamil</label><textarea id="aMoralTa">சூழ்நிலை எவ்வளவு கடினமாக இருந்தாலும், நல்லொழுக்கத்தை விட்டுவிடாதே.</textarea></div>
-<div class="field full"><label>Moral — English</label><textarea id="aMoralEn">When circumstances become difficult, do not abandon good conduct.</textarea></div>
-</div>
+  <div class="langbar">
+    <button onclick="setLanguage('ta')">தமிழ்</button>
+    <button onclick="setLanguage('en')">English</button>
+  </div>
 
-<div class="actions">
-<button onclick="saveContent()">💾 Save Content</button>
-<button class="secondary" onclick="loadContent()">↺ Load Saved Content</button>
-<button class="secondary" onclick="resetContent()">Reset Demo</button>
-</div>
-<div id="status" class="status"></div>
-</section>
+  <section class="card">
+    <div class="kural-top">
+      <article class="kural">
+        <div class="kural-tag" id="chapter">அதிகாரம் 14 · ஒழுக்கமுடைமை</div>
+        <h3 id="kuralNo">குறள் 131</h3>
+        <div class="tamil-kural" id="kuralTextTa">
+          ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம்<br>உயிரினும் ஓம்பப் படும்
+        </div>
+        <div class="divider"></div>
+        <div class="trans" id="kuralTextEn">
+          Conduct gives greatness; therefore conduct<br>must be guarded more carefully than life itself.
+        </div>
+      </article>
+      <aside class="meaning">
+        <h3 id="meaningTitle">திருக்குறள் விளக்கம்</h3>
+        <p id="meaningText">
+          நல்லொழுக்கம் மனிதனுக்கு உயர்வையும் மதிப்பையும் தருகிறது.
+          அதனால், உயிரைக் காப்பது போல அல்ல — உயிரைவிட மேலாக
+          ஒழுக்கத்தைப் பாதுகாக்க வேண்டும்.
+        </p>
+        <div><span class="pill">நல்லொழுக்கம்</span><span class="pill">தர்மம்</span><span class="pill">நேர்மை</span></div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="card story">
+    <div class="story-head">
+      <div>
+        <div class="kural-tag">Ancient Moral Story</div>
+        <h2 id="storyTitle">Harishchandra — The King Who Guarded Truth</h2>
+      </div>
+      <div>🏛️</div>
+    </div>
+    <div class="story-body">
+      <div class="story-visual" aria-label="Illustrated ancient temple night background">
+        <div class="moon"></div><div class="temple"></div>
+      </div>
+      <article class="story-copy">
+        <h3 id="storyHeading">The Promise That Was Not Broken</h3>
+        <p id="storyText">
+          In the traditional stories of King Harishchandra, the king is tested through
+          severe hardship after giving his word. Though his royal position, wealth and
+          comfort disappear, he continues to uphold what he believes is right.
+        </p>
+        <p id="storyText2">
+          The story reminds us that greatness is not merely a crown or a position.
+          A person's true dignity is revealed by the conduct they protect when life
+          becomes difficult.
+        </p>
+        <div class="moral">
+          <strong id="moralLabel">குறள் சொல்லும் வாழ்க்கைப் பாடம்</strong>
+          <span id="moralText">சூழ்நிலை எவ்வளவு கடினமாக இருந்தாலும், நல்லொழுக்கத்தை விட்டுவிடாதே.</span>
+        </div>
+      </article>
+    </div>
+  </section>
 </main>
 
+<footer>🪔 Thirukural Stories · A prototype for a multilingual wisdom-learning platform</footer>
+
 <script>
-const defaultContent={
-no:"131",chapter:"அதிகாரம் 14 · ஒழுக்கமுடைமை",
-ta:"ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம்\\nஉயிரினும் ஓம்பப் படும்",
-en:"Conduct gives greatness; therefore conduct must be guarded more carefully than life itself.",
-meaningTa:"நல்லொழுக்கம் மனிதனுக்கு உயர்வையும் மதிப்பையும் தருகிறது. அதனால், உயிரைவிட மேலாக ஒழுக்கத்தைப் பாதுகாக்க வேண்டும்.",
-meaningEn:"Good conduct gives a person dignity and greatness. Therefore, one should protect one's conduct even more carefully than life.",
-storyTitle:"Harishchandra — The King Who Guarded Truth",
-storyHeading:"The Promise That Was Not Broken",
-storyTa:"பாரம்பரியக் கதைகளில் அரசர் அரிச்சந்திரன் தனது வாக்கைக் காப்பதற்காக கடுமையான சோதனைகளை எதிர்கொள்கிறார். அரச பதவி, செல்வம், வசதி அனைத்தையும் இழந்தபோதும், அவர் தான் நம்பிய நேர்மையான நடத்தையை கைவிடவில்லை.",
-storyEn:"In traditional stories, King Harishchandra faces severe hardship after giving his word. Though he loses royal position, wealth and comfort, he continues to uphold what he believes is right.",
-moralTa:"சூழ்நிலை எவ்வளவு கடினமாக இருந்தாலும், நல்லொழுக்கத்தை விட்டுவிடாதே.",
-moralEn:"When circumstances become difficult, do not abandon good conduct."
+const defaultContent = {
+ no:"131", chapter:"அதிகாரம் 14 · ஒழுக்கமுடைமை",
+ ta:"ஒழுக்கம் விழுப்பம் தரலான் ஒழுக்கம்\\nஉயிரினும் ஓம்பப் படும்",
+ en:"Conduct gives greatness; therefore conduct must be guarded more carefully than life itself.",
+ meaningTa:"நல்லொழுக்கம் மனிதனுக்கு உயர்வையும் மதிப்பையும் தருகிறது. அதனால், உயிரைவிட மேலாக ஒழுக்கத்தைப் பாதுகாக்க வேண்டும்.",
+ meaningEn:"Good conduct gives a person dignity and greatness. Therefore, one should protect one's conduct even more carefully than life.",
+ storyTitle:"Harishchandra — The King Who Guarded Truth",
+ storyHeading:"The Promise That Was Not Broken",
+ storyTa:"பாரம்பரியக் கதைகளில் அரசர் அரிச்சந்திரன் தனது வாக்கைக் காப்பதற்காக கடுமையான சோதனைகளை எதிர்கொள்கிறார். அரச பதவி, செல்வம், வசதி அனைத்தையும் இழந்தபோதும், அவர் தான் நம்பிய நேர்மையான நடத்தையை கைவிடவில்லை.",
+ storyEn:"In traditional stories, King Harishchandra faces severe hardship after giving his word. Though he loses royal position, wealth and comfort, he continues to uphold what he believes is right.",
+ moralTa:"சூழ்நிலை எவ்வளவு கடினமாக இருந்தாலும், நல்லொழுக்கத்தை விட்டுவிடாதே.",
+ moralEn:"When circumstances become difficult, do not abandon good conduct."
 };
 
-function readForm(){
-return {no:aNo.value,chapter:aChapter.value,ta:aTa.value,en:aEn.value,
-meaningTa:aMeaningTa.value,meaningEn:aMeaningEn.value,storyTitle:aStoryTitle.value,
-storyHeading:aStoryHeading.value,storyTa:aStoryTa.value,storyEn:aStoryEn.value,
-moralTa:aMoralTa.value,moralEn:aMoralEn.value};
-}
-function fill(d){
-Object.keys(d).forEach(k=>{if(document.getElementById("a"+k.charAt(0).toUpperCase()+k.slice(1)))
-document.getElementById("a"+k.charAt(0).toUpperCase()+k.slice(1)).value=d[k]});
-}
-function saveContent(){
-localStorage.setItem("thirukuralDemo",JSON.stringify(readForm()));
-show("✓ Content saved successfully. Open the public page to view it.");
-}
-function loadContent(){
-const d=JSON.parse(localStorage.getItem("thirukuralDemo")||"null");
-fill(d||defaultContent); show(d?"✓ Saved content loaded.":"No saved content found. Demo content loaded.");
-}
-function resetContent(){
-localStorage.removeItem("thirukuralDemo");fill(defaultContent);show("Demo content restored.");
-}
-function show(t){status.textContent=t;status.style.display="block";setTimeout(()=>status.style.display="none",3500)}
+let data = JSON.parse(localStorage.getItem("thirukuralDemo")) || defaultContent;
+let lang = "ta";
 
-// Bulk JSON folder import workflow
-const jsonFolder=document.getElementById('jsonFolder');
-const validateBtn=document.getElementById('validateBtn');
-const previewBtn=document.getElementById('previewBtn');
-const importBtn=document.getElementById('importBtn');
-const clearBtn=document.getElementById('clearBtn');
-const preview=document.getElementById('preview');
-const importStatus=document.getElementById('importStatus');
-let selectedFiles=[]; let validatedRecords=[];
-
-function setStep(n){for(let i=1;i<=4;i++)document.getElementById('step'+i).classList.toggle('active',i===n)}
-function setText(id,v){document.getElementById(id).textContent=v}
-function getPath(file){return file.webkitRelativePath||file.name}
-function normalizeRecord(data,file){
-  const r=(data.kurals&&Array.isArray(data.kurals)?data.kurals:[data])[0]||{};
-  const k=r.kural||{}; const ex=r.explanation||{}; const st=r.story||{}; const mo=r.moral||{};
-  const tamil=typeof k==='string'?k:(k.tamil||''); const english=typeof k==='string'?'':(k.english||'');
-  const storyTitle=typeof st==='string'?'':(st.title||{});
-  return {
-    kural_number:Number(r.kural_number||data.kural_number||0),
-    chapter_number:Number(r.chapter_number||data.chapter_number||0),
-    chapter_tamil:r.chapter_tamil||'', chapter_english:r.chapter_english||'',
-    kural:{tamil,english}, explanation:{tamil:ex.tamil||'',english:ex.english||''},
-    story:{title:{tamil:storyTitle.tamil||'',english:storyTitle.english||''},tamil:typeof st==='string'?st:(st.tamil||''),english:typeof st==='string'?'':(st.english||'')},
-    moral:{tamil:mo.tamil||'',english:mo.english||''}, source:r.source||data.source||{}, status:r.status||'draft', _file:getPath(file)
-  };
+function render(){
+  document.getElementById("kuralNo").textContent = "குறள் " + data.no;
+  document.getElementById("chapter").textContent = data.chapter;
+  document.getElementById("kuralTextTa").innerHTML = data.ta.replace(/\\n/g,"<br>");
+  document.getElementById("kuralTextEn").innerHTML = data.en;
+  document.getElementById("meaningText").textContent = lang==="ta" ? data.meaningTa : data.meaningEn;
+  document.getElementById("storyTitle").textContent = data.storyTitle;
+  document.getElementById("storyHeading").textContent = data.storyHeading;
+  document.getElementById("storyText").textContent = lang==="ta" ? data.storyTa : data.storyEn;
+  document.getElementById("storyText2").textContent = lang==="ta"
+    ? "இந்தக் கதை, வாழ்க்கையின் சோதனைகளில் நமது உண்மையான உயர்வு நமது நடத்தையால் வெளிப்படும் என்பதை நினைவூட்டுகிறது."
+    : "The story reminds us that true dignity is revealed by the conduct we protect when life becomes difficult.";
+  document.getElementById("moralLabel").textContent = lang==="ta" ? "குறள் சொல்லும் வாழ்க்கைப் பாடம்" : "Life lesson from the Kural";
+  document.getElementById("moralText").textContent = lang==="ta" ? data.moralTa : data.moralEn;
+  document.getElementById("meaningTitle").textContent = lang==="ta" ? "திருக்குறள் விளக்கம்" : "Kural Explanation";
+  document.getElementById("pageTitle").textContent = lang==="ta" ? "கதைகளில் வாழும் திருக்குறள் ஞானம்" : "Wisdom Told Through Stories";
+  document.getElementById("pageSubtitle").textContent = lang==="ta" ? "ஒரு குறள் · ஒரு விளக்கம் · ஒரு காலத்தால் அழியாத கதை" : "One Kural · One Meaning · One timeless story";
 }
-function validateRecord(r){
-  const errors=[]; if(!Number.isInteger(r.kural_number)||r.kural_number<1||r.kural_number>1330)errors.push('Invalid Kural number');
-  if(!r.kural.tamil && !r.kural.english)errors.push('Missing Kural text');
-  if(!r.explanation.tamil && !r.explanation.english)errors.push('Missing explanation');
-  if(!r.story.tamil && !r.story.english)errors.push('Missing story');
-  if(!r.moral.tamil && !r.moral.english)errors.push('Missing moral');
-  return errors;
-}
-jsonFolder.addEventListener('change',()=>{
-  selectedFiles=Array.from(jsonFolder.files).filter(f=>f.name.toLowerCase().endsWith('.json'));
-  validatedRecords=[]; preview.classList.add('hidden'); validateBtn.disabled=selectedFiles.length===0; previewBtn.disabled=true; importBtn.disabled=true;
-  setText('fileCount',selectedFiles.length); setText('validCount',0); setText('invalidCount',0); setText('duplicateCount',0);
-  importStatus.textContent=selectedFiles.length?`${selectedFiles.length} JSON file(s) selected. Click Validate Files.`:'No JSON files selected.'; setStep(1);
-});
-validateBtn.addEventListener('click',async()=>{
-  validatedRecords=[]; let invalid=0; let ids=new Set(); let dup=0; const rows=[];
-  for(const file of selectedFiles){
-    try{const data=JSON.parse(await file.text()); const r=normalizeRecord(data,file); const errors=validateRecord(r); if(ids.has(r.kural_number)){errors.push('Duplicate Kural number');dup++} else ids.add(r.kural_number); r._errors=errors; if(!errors.length)validatedRecords.push(r); else invalid++; rows.push({file:r._file,num:r.kural_number,errors});}
-    catch(e){invalid++; rows.push({file:getPath(file),num:'—',errors:['Invalid JSON: '+e.message]});}
-  }
-  setText('validCount',validatedRecords.length); setText('invalidCount',invalid); setText('duplicateCount',dup);
-  previewBtn.disabled=validatedRecords.length===0; importBtn.disabled=validatedRecords.length===0; setStep(2);
-  importStatus.textContent=`Validation complete: ${validatedRecords.length} valid, ${invalid} invalid, ${dup} duplicate(s).`;
-  preview.innerHTML='<div class="tableWrap"><table><thead><tr><th>File</th><th>Kural</th><th>Status</th><th>Errors</th></tr></thead><tbody>'+rows.map(x=>`<tr><td class="filePath">${escapeHtml(x.file)}</td><td>${escapeHtml(String(x.num))}</td><td class="${x.errors.length?'bad':'ok'}">${x.errors.length?'Invalid':'Valid'}</td><td>${escapeHtml(x.errors.join('; '))}</td></tr>`).join('')+'</tbody></table></div>';
-});
-previewBtn.addEventListener('click',()=>{
-  preview.classList.remove('hidden'); setStep(3);
-  preview.innerHTML='<div class="tableWrap"><table><thead><tr><th>Kural</th><th>Chapter</th><th>Tamil</th><th>English</th><th>Story</th><th>Status</th></tr></thead><tbody>'+validatedRecords.map(r=>`<tr><td><b>${r.kural_number}</b></td><td>${r.chapter_number||'—'}</td><td>${escapeHtml(r.kural.tamil)}</td><td>${escapeHtml(r.kural.english)}</td><td>${escapeHtml(r.story.title.tamil||r.story.title.english||'')}</td><td class="warn">Draft</td></tr>`).join('')+'</tbody></table></div>';
-});
-importBtn.addEventListener('click',()=>{
-  const existing=JSON.parse(localStorage.getItem('thirukuralCollection')||'[]'); const map=new Map(existing.map(r=>[Number(r.kural_number),r]));
-  validatedRecords.forEach(r=>{const clean=JSON.parse(JSON.stringify(r)); delete clean._file; delete clean._errors; clean.status='draft'; map.set(Number(clean.kural_number),clean)});
-  const all=Array.from(map.values()).sort((a,b)=>a.kural_number-b.kural_number); localStorage.setItem('thirukuralCollection',JSON.stringify(all));
-  if(all.length) localStorage.setItem('thirukuralDemo',JSON.stringify(all[0]));
-  setStep(4); importStatus.textContent=`✓ Imported ${validatedRecords.length} Kural(s) as Draft. Total stored: ${all.length}.`;
-});
-clearBtn.addEventListener('click',()=>{jsonFolder.value='';selectedFiles=[];validatedRecords=[];preview.classList.add('hidden');preview.innerHTML='';validateBtn.disabled=true;previewBtn.disabled=true;importBtn.disabled=true;setText('fileCount',0);setText('validCount',0);setText('invalidCount',0);setText('duplicateCount',0);importStatus.textContent='';setStep(1)});
-function escapeHtml(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
 
-loadContent();
+function setLanguage(l){ lang=l; render(); }
+
+render();
 </script>
 </body>
 </html>
